@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"Name": "OpenUsage",
+	"Version": "0.1.0.0",
+	"Author": "OpenUsage",
+	"Description": "Show your AI provider usage from OpenUsage on Stream Deck dials and keys.",
+	"Category": "OpenUsage",
+	"CategoryIcon": "imgs/plugin/category",
+	"Icon": "imgs/plugin/icon",
+	"URL": "https://openusage.ai",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.5"
+	},
+	"OS": [
+		{ "Platform": "mac", "MinimumVersion": "12" },
+		{ "Platform": "windows", "MinimumVersion": "10" }
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "ai.openusage.streamdeck",
+	"CodePath": "bin/plugin.js",
+	"Actions": [
+		{
+			"Name": "Provider Dial",
+			"UUID": "ai.openusage.streamdeck.dial",
+			"Icon": "imgs/actions/dial/icon",
+			"Tooltip": "Show a provider's usage on a dial. Rotate to switch metric, push to refresh, tap to open OpenUsage.",
+			"PropertyInspectorPath": "ui/provider-dial.html",
+			"Controllers": ["Encoder"],
+			"Encoder": {
+				"Icon": "imgs/actions/dial/icon",
+				"layout": "$B1",
+				"StackColor": "#2563eb",
+				"TriggerDescription": {
+					"Rotate": "Switch metric",
+					"Push": "Refresh now",
+					"Touch": "Open OpenUsage"
+				}
+			},
+			"States": [
+				{ "Image": "imgs/actions/dial/icon", "TitleAlignment": "bottom" }
+			]
+		},
+		{
+			"Name": "Provider Key",
+			"UUID": "ai.openusage.streamdeck.key",
+			"Icon": "imgs/actions/key/icon",
+			"Tooltip": "Show a provider's usage on a key with a progress bar. Press to switch metric.",
+			"PropertyInspectorPath": "ui/provider-key.html",
+			"Controllers": ["Keypad"],
+			"States": [
+				{ "Image": "imgs/actions/key/icon", "TitleAlignment": "bottom" }
+			]
+		}
+	]
+}

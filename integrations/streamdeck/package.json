@@ -1,0 +1,29 @@
+{
+  "name": "openusage-streamdeck",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Stream Deck plugin that shows OpenUsage provider usage on dials and keys.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "bundle:icons": "node scripts/bundle-provider-icons.mjs",
+    "build": "npm run bundle:icons && rollup -c",
+    "watch": "npm run bundle:icons && rollup -c -w --watch.onEnd=\"streamdeck restart ai.openusage.streamdeck\"",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@elgato/streamdeck": "^1.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.0",
+    "@types/node": "^20.16.0",
+    "rollup": "^4.24.0",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.0"
+  }
+}

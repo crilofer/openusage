@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+	</head>
+	<body>
+		<sdpi-item label="Provider">
+			<sdpi-select
+				setting="providerId"
+				datasource="getProviders"
+				placeholder="Select a provider"
+				loading="Loading providers…"
+				reloadable
+			></sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Metric">
+			<sdpi-select
+				setting="lineIndex"
+				datasource="getMetrics"
+				placeholder="First metric (press to change)"
+				loading="Loading metrics…"
+				reloadable
+			></sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Refresh">
+			<sdpi-range
+				setting="intervalSeconds"
+				global
+				min="5"
+				max="120"
+				step="5"
+				default="15"
+				showlabels
+			></sdpi-range>
+		</sdpi-item>
+
+		<sdpi-item label="OpenUsage API">
+			<sdpi-textfield
+				setting="baseUrl"
+				global
+				placeholder="http://127.0.0.1:6736"
+			></sdpi-textfield>
+		</sdpi-item>
+
+		<details>
+			<summary>Tips</summary>
+			<small>
+				Press the key to cycle through the provider's metrics. Provider and metric lists come live
+				from the OpenUsage app — make sure it is running. Use the refresh icon next to a list to
+				re-fetch after changing provider.
+			</small>
+		</details>
+	</body>
+</html>
